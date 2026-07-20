@@ -89,9 +89,11 @@
                 var text = raw.slice(0, MAX_INPUT);
 
                 try {
+                    if (!config.endpoint) {
+                        showToast('❌ ' + (i18n.requestFail || 'Request failed.'));
+                        return;
+                    }
                     var response = await fetch(config.endpoint, {
-                        method: 'POST',
-                        headers: {
                             'Content-Type': 'application/json',
                             'X-WP-Nonce': config.nonce || ''
                         },

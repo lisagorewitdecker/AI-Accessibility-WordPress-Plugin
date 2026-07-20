@@ -1,0 +1,117 @@
+/*
+ * AI Accessibility Toolbar - Widget Styles
+ * Google Material Design inspired
+ */
+
+#ai-widget-trigger {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 999999;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: #1a73e8;
+    color: #fff;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s, background 0.2s;
+}
+
+#ai-widget-trigger:hover,
+#ai-widget-trigger:focus {
+    transform: scale(1.05);
+    background: #1b66c9;
+    outline: 2px solid #fff;
+}
+
+#ai-widget-panel {
+    position: fixed;
+    bottom: 85px;
+    right: 20px;
+    z-index: 999998;
+    width: 280px;
+    background: #fff;
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 1px 3px rgba(60, 64, 67, 0.3),
+    0 4px 8px 3px rgba(60, 64, 67, 0.15);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+#ai-widget-panel[hidden] {
+    display: none;
+}
+
+#ai-widget-panel h3 {
+    margin: 0 0 12px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #202124;
+}
+
+.ai-widget-divider {
+    height: 1px;
+    background: #dadce0;
+    border: none;
+    margin: 12px 0;
+}
+
+.ai-widget-btn {
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 6px;
+    text-align: left;
+    background: #fff;
+    border: 1px solid #dadce0;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #3c4043;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.ai-widget-btn:hover,
+.ai-widget-btn:focus {
+    background: #f8f9fa;
+    outline: 2px solid #1a73e8;
+    outline-offset: 2px;
+}
+
+.ai-widget-btn.ai-primary-btn {
+    background: #1a73e8;
+    color: #fff;
+    border: none;
+}
+
+.ai-widget-btn.ai-primary-btn:hover,
+.ai-widget-btn.ai-primary-btn:focus {
+    background: #1b66c9;
+    outline: 2px solid #fff;
+    outline-offset: 2px;
+}
+
+/* Toast */
+#ai-wp-toast {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999999;
+    max-width: 350px;
+    background: #323232;
+    color: #fff;
+    padding: 16px;
+    border-radius: 4px;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+    font-family: sans-serif;
+    font-size: 13px;
+    line-height: 1.5;
+    white-space: pre-wrap;
+}
+
+#ai-wp-toast[hidden] {
+    display: none;
+}

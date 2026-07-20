@@ -1,2 +1,2 @@
-# AI-Accessibility-Plugin-API-WP-NPM
-AI Accessibility Plugin For NPM and Wordpress, etc
+# AI-Accessibility-WordPress-Plugin
+AI Accessibility Plugin For and Wordpress, based on the Google Chronw extension.

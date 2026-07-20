@@ -1,0 +1,39 @@
+name: PHP Code Quality Analysis
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+permissions:
+  contents: read
+
+jobs:
+  phpcs:
+    name: PHPCS & WordPress Coding Standards
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '7.4'
+          coverage: none
+
+      - name: Install PHP_CodeSniffer and WordPress Coding Standards
+        run: |
+          composer global config minimum-stability dev
+          composer global config prefer-stable true
+          composer global require squizlabs/php_codesniffer wp-coding-standards/wpcs phpcompatibility/phpcompatibility-wp
+          # Add composer global bin directory to PATH
+          echo "$(composer global config home)/vendor/bin" >> $GITHUB_PATH
+          # Configure phpcs to use WordPress and PHPCompatibility standards
+          $(composer global config home)/vendor/bin/phpcs --config-set installed_paths $(composer global config home)/vendor/wp-coding-standards/wpcs,$(composer global config home)/vendor/phpcompatibility/phpcompatibility-wp,$(composer global config home)/vendor/phpcompatibility/php-compatibility
+
+      - name: Run PHPCS
+        run: |
+          phpcs --standard=AIAccessibilityToolbarCodingStandards.xml .

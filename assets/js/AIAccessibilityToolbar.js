@@ -25,12 +25,16 @@
         // ------------------------------------------------------------------
         // Toast
         // ------------------------------------------------------------------
-        var toast = document.createElement('div');
-        toast.id = 'ai-wp-toast';
+        var toast = document.getElementById('ai-wp-toast');
+        if (!toast) {
+            toast = document.createElement('div');
+            toast.id = 'ai-wp-toast';
+            document.body.appendChild(toast);
+        }
         toast.setAttribute('role', 'status');
         toast.setAttribute('aria-live', 'polite');
+        toast.style.whiteSpace = 'pre-wrap';
         toast.hidden = true;
-        document.body.appendChild(toast);
 
         var toastTimer = null;
         function showToast(msg) {

@@ -83,8 +83,8 @@
                 showToast(i18n.processing || 'Processing...');
                 setPanel(false);
 
-                // Use UTF-16 code-unit-safe slice; server does mb_substr in UTF-8,
-                // so we intentionally undershoot slightly to stay within the limit.
+                // Use UTF-16 code-unit slice; the server enforces the limit in UTF-8 via mb_substr,
+                // so the server-side limit remains the ultimate source of truth.
                 var raw = (document.body && document.body.innerText) ? document.body.innerText : '';
                 var text = raw.slice(0, MAX_INPUT);
 

@@ -108,7 +108,7 @@
                     var data = null;
                     try {
                         data = await response.json();
-                    } catch (parseErr) {
+                    } catch {
                         data = null;
                     }
 
@@ -125,7 +125,7 @@
                     } else {
                         showToast('❌ ' + (i18n.requestFail || 'Request failed.'));
                     }
-                } catch (err) {
+                } catch {
                     showToast(i18n.connError || 'Connection error.');
                 } finally {
                     summarizeBtn.disabled = false;

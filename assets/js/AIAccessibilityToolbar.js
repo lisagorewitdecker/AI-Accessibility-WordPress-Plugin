@@ -94,6 +94,8 @@
                         return;
                     }
                     var response = await fetch(config.endpoint, {
+                        method: 'POST',
+                        headers: {
                             'Content-Type': 'application/json',
                             'X-WP-Nonce': config.nonce || ''
                         },

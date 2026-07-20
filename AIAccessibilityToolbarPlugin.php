@@ -37,6 +37,12 @@ require_once AI_TOOLBAR_DIR . 'WidgetAssetsLoader.php';
 // ---------------------------------------------------------------------------
 // 1. Admin settings page (secure API-key storage)
 // ---------------------------------------------------------------------------
+
+/**
+ * Register the plugin's API key setting.
+ *
+ * @return void
+ */
 add_action( 'admin_init', 'ai_toolbar_register_setting' );
 function ai_toolbar_register_setting() {
     register_setting(
@@ -51,6 +57,11 @@ function ai_toolbar_register_setting() {
     );
 }
 
+/**
+ * Add the plugin's settings page to the options menu.
+ *
+ * @return void
+ */
 add_action( 'admin_menu', 'ai_toolbar_add_settings_page' );
 function ai_toolbar_add_settings_page() {
     add_options_page(
@@ -62,7 +73,13 @@ function ai_toolbar_add_settings_page() {
     );
 }
 
-// Post-Redirect-Get handler — processes the settings form and redirects before any output.
+/**
+ * Process the settings form submission and securely update the Gemini API key.
+ *
+ * Implements a Post-Redirect-Get pattern to prevent duplicate submissions.
+ *
+ * @return void
+ */
 add_action( 'admin_init', 'ai_toolbar_process_settings_form' );
 function ai_toolbar_process_settings_form() {
     if (
@@ -101,6 +118,11 @@ function ai_toolbar_process_settings_form() {
     exit;
 }
 
+/**
+ * Render the HTML settings page for the AI Accessibility Toolbar plugin.
+ *
+ * @return void
+ */
 function ai_toolbar_render_settings() {
     if ( ! current_user_can( 'manage_options' ) ) {
         return;
@@ -181,6 +203,9 @@ add_action( 'rest_api_init', function () {
 
 /**
  * REST permission check — enforces a valid WP REST nonce.
+ *
+ * @param WP_REST_Request $request The REST request object.
+ * @return true|WP_Error True if access is allowed, WP_Error otherwise.
  */
 function ai_toolbar_rest_permission_check( WP_REST_Request $request ) {
     $nonce = $request->get_header( 'x_wp_nonce' );
@@ -266,6 +291,13 @@ function ai_toolbar_check_rate_limit() {
     return true;
 }
 
+/**
+ * Resolve and retrieve the client's IP address.
+ *
+ * Supports optional proxy headers via filtering.
+ *
+ * @return string The resolved IP address.
+ */
 function ai_toolbar_get_client_ip() {
     // Default: use the direct connection address — safe for any network topology.
     $remote = ! empty( $_SERVER['REMOTE_ADDR'] )
@@ -300,6 +332,14 @@ function ai_toolbar_get_client_ip() {
     return filter_var( $remote, FILTER_VALIDATE_IP ) ? $remote : '0.0.0.0';
 }
 
+/**
+ * Handle the REST API request to summarize webpage content using Gemini API.
+ *
+ * Enforces rate limiting, text sanitization, and truncation.
+ *
+ * @param WP_REST_Request $request The REST request object.
+ * @return WP_REST_Response|WP_Error The REST response with the summary or WP_Error on failure.
+ */
 function ai_toolbar_handle_api_request( WP_REST_Request $request ) {
     // Rate-limit before doing anything expensive.
     $allowed = ai_toolbar_check_rate_limit();
@@ -441,6 +481,11 @@ function ai_toolbar_handle_api_request( WP_REST_Request $request ) {
 // 3. Front-end widget: enqueue assets + inject HTML
 // ---------------------------------------------------------------------------
 
+/**
+ * Inject the accessibility toolbar HTML widget into the public page footer.
+ *
+ * @return void
+ */
 add_action( 'wp_footer', 'ai_toolbar_inject_widget' );
 function ai_toolbar_inject_widget() {
     if ( is_admin() ) {
@@ -490,6 +535,12 @@ function ai_toolbar_inject_widget() {
 // ---------------------------------------------------------------------------
 // 4. Uninstall
 // ---------------------------------------------------------------------------
+
+/**
+ * Delegation handler triggered when the plugin is uninstalled/deleted.
+ *
+ * @return void
+ */
 register_uninstall_hook( __FILE__, 'ai_toolbar_run_uninstall_handler' );
 function ai_toolbar_run_uninstall_handler() {
     $handler = __DIR__ . '/AIAccessibilityToolbarUninstallHandler.php';

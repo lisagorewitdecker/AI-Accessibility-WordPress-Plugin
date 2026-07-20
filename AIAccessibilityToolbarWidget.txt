@@ -1,0 +1,9 @@
+ai-accessibility-toolbar-WordPress-Plugin/
+├── ai-accessibility-toolbar-WordPress-Plugin.php
+├── uninstall.php
+├── readme.txt
+└── assets/
+    ├── css/
+    │   └── widget.css
+    └── js/
+        └── widget.js

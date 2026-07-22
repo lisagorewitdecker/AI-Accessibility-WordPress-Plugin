@@ -1,2 +1,2 @@
 # AI-Accessibility-WordPress-Plugin
-AI Accessibility Plugin For and Wordpress, based on the Google Chronw extension.
+AI Accessibility Plugin For and Wordpress, based on the Google Chrone extension. Inorporates Google Gemini. Dowload the zip file. Navigate to The Plugin sextion of your WordPress site and manually upload the fully functional "AI Accessability WordPreiillss Plugin" cluck the install button and it activates. GO to your WordPrwsss site homepage and you will see the starburst icthexzon. Click it and the plugin loads some really unique features.  

@@ -135,7 +135,7 @@ function ai_toolbar_render_settings() {
 			. '</p></div>';
 	}
 
-	$api_key = (string) get_option( AI_TOOLBAR_OPTION_KEY, '' );
+	$api_key      = (string) get_option( AI_TOOLBAR_OPTION_KEY, '' );
 	$masked_value = '' !== $api_key ? str_repeat( '•', min( 20, strlen( $api_key ) ) ) : '';
 	?>
 	<div class="wrap" style="max-width:600px;">
@@ -404,8 +404,8 @@ function ai_toolbar_handle_api_request( WP_REST_Request $request ) {
 		$endpoint,
 		array(
 			'headers' => array(
-				'Content-Type'    => 'application/json',
-				'x-goog-api-key'  => $api_key, // Header, not URL — stays out of logs.
+				'Content-Type'   => 'application/json',
+				'x-goog-api-key' => $api_key, // Header, not URL — stays out of logs.
 			),
 			'body'    => $body,
 			'timeout' => 30,

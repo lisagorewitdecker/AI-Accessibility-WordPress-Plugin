@@ -95,7 +95,7 @@ if ( is_multisite() ) {
 			restore_current_blog();
 		}
 
-		$offset += $batch_size;
+		$offset    += $batch_size;
 		$site_count = count( $site_ids );
 	} while ( $batch_size === $site_count );
 

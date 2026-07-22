@@ -31,7 +31,7 @@ if ( ! function_exists( 'ai_toolbar_delete_site_data' ) ) {
 		delete_option( 'ai_toolbar_gemini_key' );
 
 		// 2. Remove any leftover rate-limit transients (both value and timeout rows).
-		//    These use the prefix "ai_toolbar_rl_" defined in the plugin.
+		// These use the prefix "ai_toolbar_rl_" defined in the plugin.
 		$prefixes = array(
 			'_transient_ai_toolbar_rl_',
 			'_transient_timeout_ai_toolbar_rl_',
@@ -49,7 +49,7 @@ if ( ! function_exists( 'ai_toolbar_delete_site_data' ) ) {
 		}
 
 		// 3. Flush the options from the object cache explicitly if needed,
-		//    though delete_option() already handles cache invalidation for the key.
+		// though delete_option() already handles cache invalidation for the key.
 		wp_cache_delete( 'ai_toolbar_gemini_key', 'options' );
 	}
 }

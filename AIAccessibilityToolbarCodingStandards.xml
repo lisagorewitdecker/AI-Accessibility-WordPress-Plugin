@@ -14,6 +14,12 @@
     <rule ref="WordPress">
         <!-- Allow modern short arrays if you prefer them; delete this to keep long arrays. -->
         <exclude name="Generic.Arrays.DisallowShortArraySyntax"/>
+        <!-- Plugin files use PascalCase filenames; renaming would break the plugin loader. -->
+        <exclude name="WordPress.Files.FileName.NotHyphenatedLowercase"/>
+        <exclude name="WordPress.Files.FileName.InvalidClassFileName"/>
+        <!-- WordPress themes/plugins commonly embed PHP inside HTML templates. -->
+        <exclude name="Squiz.PHP.EmbeddedPhp.ContentAfterOpen"/>
+        <exclude name="Squiz.PHP.EmbeddedPhp.ContentBeforeEnd"/>
     </rule>
 
     <!-- Text-domain check -->

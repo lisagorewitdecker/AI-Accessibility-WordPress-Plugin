@@ -49,7 +49,7 @@ Sign in to [Google AI Studio](https://aistudio.google.com/) and create a key. Fr
 
 = Which Gemini model does the plugin call? =
 
-`gemini-2.5-flash` via the `generateContent` endpoint. You can change the model by editing the `AI_TOOLBAR_MODEL` constant in the main plugin file.
+`gemini-3.5-flash` via the `generateContent` endpoint. You can change the model by editing the `AI_TOOLBAR_MODEL` constant in the main plugin file.
 
 = Is the widget accessible? =
 

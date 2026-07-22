@@ -535,26 +535,3 @@ function ai_toolbar_inject_widget() {
 	<?php
 }
 
-// ---------------------------------------------------------------------------
-// 4. Uninstall
-// ---------------------------------------------------------------------------
-
-register_uninstall_hook( __FILE__, 'ai_toolbar_run_uninstall_handler' );
-/**
- * Delegation handler triggered when the plugin is uninstalled/deleted.
- *
- * @return void
- */
-function ai_toolbar_run_uninstall_handler() {
-	$handler = __DIR__ . '/AIAccessibilityToolbarUninstallHandler.php';
-	if ( file_exists( $handler ) ) {
-		// Provide the constant that the handler expects.
-		if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
-			define( 'WP_UNINSTALL_PLUGIN', true );
-		}
-		include $handler;
-	} else {
-		// Fallback: at minimum, remove the option so no secrets linger.
-		delete_option( AI_TOOLBAR_OPTION_KEY );
-	}
-}

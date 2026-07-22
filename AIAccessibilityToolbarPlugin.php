@@ -25,7 +25,7 @@ define( 'AI_TOOLBAR_FILE', __FILE__ );
 define( 'AI_TOOLBAR_DIR', plugin_dir_path( __FILE__ ) );
 define( 'AI_TOOLBAR_URL', plugin_dir_url( __FILE__ ) );
 define( 'AI_TOOLBAR_OPTION_KEY', 'ai_toolbar_gemini_key' );
-define( 'AI_TOOLBAR_MODEL', 'gemini-2.5-flash' );
+define( 'AI_TOOLBAR_MODEL', 'gemini-3.5-flash' );
 define( 'AI_TOOLBAR_API_BASE', 'https://generativelanguage.googleapis.com/v1beta/models/' );
 define( 'AI_TOOLBAR_MAX_INPUT', 12000 );
 define( 'AI_TOOLBAR_RATE_LIMIT', 5 );   // Requests per rate-limit window.

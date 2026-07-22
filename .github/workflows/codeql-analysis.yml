@@ -42,6 +42,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
+        # PHP is intentionally excluded from CodeQL in this workflow.
+        # See `php-analysis.yml` for the repository's PHP security/static checks.
         include:
           - language: actions
             build-mode: none

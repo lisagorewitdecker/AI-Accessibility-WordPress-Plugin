@@ -42,9 +42,13 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
+        # PHP is intentionally excluded from CodeQL in this workflow.
+        # See `php-analysis.yml` for the repository's PHP security/static checks.
         include:
           - language: actions
             build-mode: none
+          # PHP is analyzed by the dedicated PHPCS workflow (php-analysis.yml).
+          # It is intentionally not included here because this CodeQL setup does not target PHP.
           - language: javascript-typescript
             build-mode: none
     steps:

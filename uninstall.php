@@ -103,4 +103,3 @@ if ( is_multisite() ) {
 } else {
 	ai_toolbar_delete_site_data();
 }
-

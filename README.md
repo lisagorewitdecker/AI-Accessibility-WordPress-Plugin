@@ -8,4 +8,5 @@ AI Accessibility Plugin for WordPress, based on the Google Chrome extension. Inc
 4. Visit your site homepage and click the starburst icon to open the plugin.
 
 ## Gemini Api Key Needed
-1.
+1. Please do not use the Gemini API keys used in this repository.
+2. You can register for a Gemini API key to replace those in the repositpory by visiting...
